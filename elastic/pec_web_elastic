@@ -1,0 +1,23 @@
+sudo docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.2.3
+
+# Create idx
+curl -XPUT 'localhost:9200/stock_values?pretty' -H 'Content-Type: application/json' -d'
+{
+    "settings" : {
+        "index" : {
+            "number_of_shards" : 3, 
+            "number_of_replicas" : 2 
+        }
+    }
+}
+'
+
+# CSV to JSON and ingest data from file
+while read f1
+do
+    curl -XPOST 'localhost:9200/stock_values/stock_name' -H "Content-Type: application/json" -u localhost:9200 -d "{ \"stock_name\": \"$f1\"}"
+done < stock_values.csv
+
+# Retrieve populated idx
+
+
