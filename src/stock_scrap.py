@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # Created stock-scrap.py in /usr/lib/python3.5
 # sudo docker cp 1a94fc01b258:/usr/lib/python3.5/stock_values.csv ~/Desktop/
 
@@ -33,7 +34,7 @@ for x in range(len(linkData)):
     textData.append(res+'\n')
     print (textData[x])
 
-with open('stock_values.csv', 'w', encoding = 'utf-8') as f:
+with open('/data/stock_values.csv', 'w', encoding = 'utf-8') as f:
     for val in textData:
         f.write(''.join(val))
 
