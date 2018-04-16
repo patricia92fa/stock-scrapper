@@ -4,21 +4,4 @@ This repository contains python code that extracts stock data from various websi
 ## Getting started
 The only prerequisite is to have an updated Docker version installed. To do so, please follow the instructions of the [official documentation](https://docs.docker.com/install/linux/docker-ee/ubuntu/#install-using-the-repository).
 
-To run the scrapper, just execute the `init.py` script located in the main folder. It will build the `Dockerfile` and run the resulting image, which in turn runs the web scrapping code periodically, ingests the data intro an Elasticsearch data node.The Kibana dashboard is then available at `localhost:5601`.
-
-### Content description
-* **/docker/Dockerfile**
-* **/docker/requirements.txt**
-* **/src/stock\_scrap.py**
-* **/csv/stock\_data.csv**
-* **/pdf/respuestas.pdf**
-
-## Author
-Patricia Ferreiro
-
-## License
-This project is licensed under the MIT License - see the LICENSE.md file for details.
-
-## Resources
-1. Lawson, R. (2015). _Web Scraping with Python_. Packt Publishing Ltd. Chapter 2. Scraping the Data.
-2. Mitchel, R. (2015). _Web Scraping with Python: Collecting Data from the Modern Web_. O'Reilly Media, Inc. Chapter 1. Your First Web Scraper.
+To run the scrapper, just execute the `init.py` script located in the main folder. It will build the `Dockerfile`, execute the scrapper and save the extracted datasetin the `/csv` folder.
