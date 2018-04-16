@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from bs4 import BeautifulSoup as bs
 
-# Define browser
+# Define browser and set capabilities
 caps = DesiredCapabilities().FIREFOX
 caps["pageLoadStrategy"] = "eager"
 browser = webdriver.Firefox(capabilities=caps)
@@ -25,13 +25,12 @@ for stock in stocks:
     url = base_url+stock+historic_url+stock
     browser.get(url)
     # Scroll down and wait until all values are loaded
-    # browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     browser.execute_script("window.scrollTo(0, 50000);")
     time.sleep(1)
     browser.execute_script("window.scrollTo(0, 50000);")
     time.sleep(1)
     browser.execute_script("window.scrollTo(0, 50000);")
-    # Once the page is fully scrolled, grab the source code
+    # Once the page is fully scrolled, get the source code
     source_data = browser.page_source
 
     # Parse html data using bs
@@ -57,9 +56,3 @@ for stock in stocks:
 
 # Close browser
 browser.close()
-
-# Geckodriver
-# wget https://github.com/mozilla/geckodriver/releases/download/v0.20.0/geckodriver-v0.20.0-linux64.tar.gz
-# tar -xvzf geckodriver*
-# chmod +x geckodriver
-# export PATH=$PATH:$(pwd)/geckodrive
