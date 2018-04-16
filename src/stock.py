@@ -15,7 +15,7 @@ base_url = 'https://es.finance.yahoo.com/quote/'
 historic_url = '/history?p='
 
 # Write headers to csv file
-with open('/home/sylmeria/tmp/data/stock_values.csv', 'w', encoding = 'utf-8') as f:
+with open('/data/stock_values.csv', 'w', encoding = 'utf-8') as f:
     fields=['stock','date','open', 'max', 'min', 'close', 'adj close', 'volume']
     writer = csv.writer(f)
     writer.writerow(fields)
@@ -50,7 +50,7 @@ for stock in stocks:
         textData.append(stock+'|'+res+'\n')
 
     # Write scrapped data to csv file
-    with open('/home/sylmeria/tmp/data/stock_values.csv', 'a', encoding = 'utf-8') as f:
+    with open('/data/stock_values.csv', 'a', encoding = 'utf-8') as f:
         for val in textData:
             val = val.replace(',', '.')
             f.write(''.join(val.replace('|', ',')))
