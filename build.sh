@@ -1,2 +1,1 @@
-sudo docker build -t stock-scrapper docker/
-
+sudo docker build -t stock-scrapper src/

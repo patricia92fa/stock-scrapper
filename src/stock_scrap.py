@@ -7,6 +7,7 @@ from datetime import datetime
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
+stocks = ['^IBEX', 'STOXX50E', 'GDAXI', 'FTSE', 'GSPC', 'DJI', 'IXIC']
 url_1 = 'https://es.finance.yahoo.com/quote/%5EIBEX/components?p=^IBEX'
 url_2 = 'https://es.finance.yahoo.com/quote/%5ESTOXX50E/components?p=%5ESTOXX50E'
 url_3 = 'https://es.finance.yahoo.com/quote/%5EGDAXI/components?p=%5EGDAXI'

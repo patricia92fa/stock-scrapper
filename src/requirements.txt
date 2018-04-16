@@ -5,4 +5,4 @@
 beautifulsoup4>=4.6.0
 bs4>=0.0.1
 pycurl>=7.43.0
-
+selenium>=3.11.0
